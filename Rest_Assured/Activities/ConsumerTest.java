@@ -1,4 +1,4 @@
-package Activities;
+package activities;
 
 import au.com.dius.pact.consumer.MockServer;
 import au.com.dius.pact.consumer.dsl.DslPart;
@@ -29,21 +29,21 @@ public class ConsumerTest {
         // Set headers
         headers.put("Content-Type", "application/json");
         // Create the JSON body
-        DslPart reqResBody = new PactDslJsonBody()
+        DslPart ResBody = new PactDslJsonBody()
                 .numberType("id", 123)
-                .stringType("firstName", "Nidhi")
-                .stringType("lastName", "Pal")
-                .stringType("email", "nidhi@example.com");
+                .stringType("firstName", "Saahil")
+                .stringType("lastName", "Sharma")
+                .stringType("email", "saahil@example.com");
         // Create the contract(Pact)
         return builder.given("POST Request")
                 .uponReceiving("A request to create a user")
                 .method("POST")
                 .path("/api/users")
                 .headers(headers)
-                .body(reqResBody)
+                .body(ResBody)
                 .willRespondWith()
                 .status(201)
-                .body(reqResBody)
+                .body(ResBody)
                 .toPact(V4Pact.class);
     }
 
@@ -55,9 +55,9 @@ public class ConsumerTest {
         // Create the JSON body
         DslPart reqResBody = new PactDslJsonBody()
                 .numberType("id", 1)
-                .stringType("firstName", "Nidhi")
-                .stringType("lastName", "Pal")
-                .stringType("email", "nidhi@example.com");
+                .stringType("firstName", "Saahil")
+                .stringType("lastName", "Sharma")
+                .stringType("email", "saahil@example.com");
         // Create the contract(Pact)
         return builder.given("GET Request")
                 .uponReceiving("A request to get a user")
@@ -123,9 +123,9 @@ public class ConsumerTest {
         // Create a request body
         Map<String, Object> reqBody = new HashMap<>();
         reqBody.put("id", 123);
-        reqBody.put("firstName", "Nidhi");
-        reqBody.put("lastName", "Pal");
-        reqBody.put("email", "nidhi@example.com");
+        reqBody.put("firstName", "Saahil");
+        reqBody.put("lastName", "Sharma");
+        reqBody.put("email", "saahil@example.com");
 
         // Send request, get response, assert response
         given().baseUri(mockServer.getUrl() + "/api/users").headers(headers).body(reqBody).log().all().

@@ -1,4 +1,4 @@
-package Example;
+package activities;
 
 
 import au.com.dius.pact.provider.junit5.HttpTestTarget;
@@ -30,15 +30,15 @@ public class ProviderTest {
     public void state1() {
     }
 
-    @State("GET Request")
-    public void state2() {
-    }
+//    @State("GET Request")
+//    public void state2() {
+//    }
 
-    @State("DELETE Request")
-    public void state3() {
-    }
+//    @State("DELETE Request")
+//    public void state3() {
+//    }
 
-    @State("GET ALL Request")
-    public void state4() {
-    }
+//    @State("GET ALL Request")
+//    public void state4() {
+//    }
 }
